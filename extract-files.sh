@@ -55,6 +55,9 @@ fi
 
 function blob_fixup() {
     case "${1}" in
+        system_ext/lib64/com.qualcomm.qti.imscmservice@1.0.so|system_ext/lib64/com.qualcomm.qti.imscmservice@2.0.so|system_ext/lib64/com.qualcomm.qti.imscmservice@2.1.so)
+           "${PATCHELF}" --replace-needed "libhidlbase.so" "libhidlbase-v32.so" "${2}"
+            ;;
         system_ext/lib64/libdpmframework.so)
             grep -q "libcutils_shim.so" "${2}" || "${PATCHELF}" --add-needed "libcutils_shim.so" "${2}"
             ;;
@@ -65,7 +68,20 @@ function blob_fixup() {
             grep -q "libui_shim.so" "${2}" || "${PATCHELF}" --add-needed "libui_shim.so" "${2}"
             ;;
         system_ext/lib64/lib-imsvt.so)
+           "${PATCHELF}" --replace-needed "libhidlbase.so" "libhidlbase-v32.so" "${2}"
             grep -q "libgui_shim.so" "${2}" || "${PATCHELF}" --add-needed "libgui_shim.so" "${2}"
+            ;;
+        vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti|vendor/bin/hw/vendor.display.color@1.0-service|vendor/bin/imsrcsd|vendor/bin/ATFWD-daemon|vendor/bin/ims_rtp_daemon|vendor/bin/cnd|vendor/bin/netmgrd)
+            "${PATCHELF}" --replace-needed "libhidlbase.so" "libhidlbase-v32.so" "${2}"
+            ;;
+        vendor/bin/imsdatadaemon)
+            grep -q "libhidlbase-v32.so" "${2}" || "${PATCHELF}" --add-needed "libhidlbase-v32.so" "${2}"
+            ;;
+        vendor/bin/pm-service)
+            grep -q "libutils-v33.so" "${2}" || "${PATCHELF}" --add-needed "libutils-v33.so" "${2}"
+            ;;
+        vendor/lib64/com.qualcomm.qti.ant@1.0.so|vendor/lib64/libril-qc-qmi-1.so)
+           "${PATCHELF}" --replace-needed "libhidlbase.so" "libhidlbase-v32.so" "${2}"
             ;;
         system_ext/etc/init/dpmd.rc)
             sed -i "s/\/system\/product\/bin\//\/system\/system_ext\/bin\//g" "${2}"
@@ -76,8 +92,6 @@ function blob_fixup() {
             sed -i "s/\/system\/product\/framework\//\/system\/system_ext\/framework\//g" "${2}"
             ;;
         system_ext/etc/permissions/qcrilhook.xml)
-            ;&
-        system_ext/etc/permissions/telephonyservice.xml)
             sed -i "s/\/system\/framework\//\/system\/system_ext\/framework\//g" "${2}"
             ;;
         vendor/bin/mm-qcamera-daemon)
@@ -121,6 +135,15 @@ function blob_fixup() {
         vendor/lib/libmmcamera_dbg.so)
             sed -i 's|persist.camera.debug.logfile|persist.vendor.camera.dbglog|g' "${2}"
             sed -i 's|/data/misc/camera|/data/vendor/qcam|g' "${2}"
+            ;;
+         vendor/lib/libchromaflash.so|vendor/lib/libmmcamera_hdr_gb_lib.so|vendor/lib/libtrueportrait.so|vendor/lib/libts_detected_face_hal.so|vendor/lib/libts_face_beautify_hal.so|vendor/lib/liboptizoom.so|vendor/lib/libseemore.so|vendor/lib/libubifocus.so)
+           "${PATCHELF}" --replace-needed "libstdc++.so" "libstdc++_vendor.so" "${2}"
+            ;;
+        vendor/bin/vfmService)
+           "${PATCHELF}" --replace-needed "libstdc++.so" "libstdc++_vendor.so" "${2}"
+            ;;.so
+         vendor/lib64/hw/fingerprint.msm8953|vendor/lib64/libvalAuth.so|vendor/lib64/libvcsfp.so|vendor/lib64/libvfmAuth.so|vendor/lib64/libvfmClient.so|)
+           "${PATCHELF}" --replace-needed "libstdc++.so" "libstdc++_vendor.so" "${2}"
             ;;
         vendor/bin/smart_charger)
             grep -q "liblog.so" "${2}" || "${PATCHELF}" --add-needed "liblog.so" "${2}"

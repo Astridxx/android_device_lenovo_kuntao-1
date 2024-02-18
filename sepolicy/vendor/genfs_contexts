@@ -2,6 +2,9 @@
 genfscon debugfs /rmt_storage                                         u:object_r:debugfs_rmt:s0
 genfscon debugfs /wlan0                                               u:object_r:debugfs_wlan:s0
 
+# Fsck.f2fs
+genfscon sysfs   /devices/soc/7824900.sdhci/mmc_host/mmc0/mmc0:0001/block/mmcblk0/mmcblk0p56/partition  u:object_r:sysfs_dm:s0
+
 # Gadget
 genfscon sysfs   /devices/soc/7000000.ssusb/7000000.dwc3/gadget/lun0/ u:object_r:sysfs_android_usb:s0
 

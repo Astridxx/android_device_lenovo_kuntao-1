@@ -10,6 +10,7 @@ ro.config.media_vol_steps=25
 
 # Bluetooth
 vendor.bluetooth.soc=smd
+bluetooth.sco.disable_enhanced_connection=true
 
 # Bpf
 ro.kernel.ebpf.supported=false
@@ -41,10 +42,12 @@ drm.service.enabled=true
 # Display
 debug.sf.recomputecrop=0
 debug.gralloc.enable_fb_ubwc=1
-debug.sf.disable_backpressure=1
 debug.hwui.renderer=opengl
 debug.renderengine.backend=threaded
 debug.sf.auto_latch_unsignaled=false
+ro.hardware.egl=adreno
+ro.egl.blobcache.multifile=true
+ro.egl.blobcache.multifile_limit=33554432
 debug.sf.enable_transaction_tracing=false
 debug.sf.predict_hwc_composition_strategy=0
 debug.sf.disable_client_composition_cache=1
@@ -87,7 +90,12 @@ persist.log.tag.FastChargingPreferenceController=S
 persist.log.tag.IptablesRestoreController=E
 persist.log.tag.BandwidthController=E
 persist.log.tag.OpenGLRenderer=E
+persist.log.tag.ShortcutService=E
+persist.log.tag.ResilientAtomicFile=E
+persist.log.tag.RolesPersistenceImpl=E
 persist.log.tag.BpfCoordinator=E
+persist.log.tag.DeviceConfigUtils=E
+persist.log.tag.RuntimePermissionsPersistenceImpl=E
 persist.log.tag.libprocessgroup=W
 
 # IMS
@@ -132,6 +140,7 @@ ro.telephony.call_ring.multiple=false
 ro.surface_flinger.force_hwc_copy_for_virtual_displays=true
 ro.surface_flinger.max_frame_buffer_acquired_buffers=3
 ro.surface_flinger.max_virtual_display_dimension=4096
+ro.surface_flinger.enable_frame_rate_override=false
 
 # Storage
 persist.sys.binary_xml=false
