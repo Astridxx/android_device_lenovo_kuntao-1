@@ -79,6 +79,7 @@
         <item>com.google.android.gms/com.google.android.gms.nearby.discovery.service.DiscoveryService</item>
         <item>com.google.android.gms/com.google.android.gms.nearby.messages.service.NearbyMessagesService</item>
         <item>com.google.android.gms/com.google.android.gms.nearby.sharing.ReceiveSurfaceService</item>
+        <item>com.google.android.gms/com.google.android.gms.nearby.sharing.SendSurfaceService</item>
     </string-array>
 
     <!-- Default values for LiveDisplay -->
