@@ -177,6 +177,9 @@ BOARD_VNDK_VERSION := current
 # Properties
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 
+# Verified Boot
+BOARD_AVB_ENABLE := false
+
 # Wi-Fi
 BOARD_HOSTAPD_DRIVER := NL80211
 BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_qcwcn
