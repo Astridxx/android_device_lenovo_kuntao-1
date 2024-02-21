@@ -87,16 +87,16 @@ persist.log.tag.ANDR-PERF-RESOURCE=S
 persist.log.tag.ANDR-PERF-RESOURCEQS=S
 persist.log.tag.ANDR-PERF-OPTSHANDLER=S
 persist.log.tag.FastChargingPreferenceController=S
-persist.log.tag.IptablesRestoreController=E
-persist.log.tag.BandwidthController=E
-persist.log.tag.OpenGLRenderer=E
-persist.log.tag.ShortcutService=E
-persist.log.tag.ResilientAtomicFile=E
-persist.log.tag.RolesPersistenceImpl=E
-persist.log.tag.BpfCoordinator=E
-persist.log.tag.DeviceConfigUtils=E
-persist.log.tag.RuntimePermissionsPersistenceImpl=E
-persist.log.tag.libprocessgroup=W
+persist.log.tag.IptablesRestoreController=S
+persist.log.tag.BandwidthController=S
+persist.log.tag.OpenGLRenderer=S
+persist.log.tag.ShortcutService=S
+persist.log.tag.ResilientAtomicFile=S
+persist.log.tag.RolesPersistenceImpl=S
+persist.log.tag.BpfCoordinator=S
+persist.log.tag.DeviceConfigUtils=S
+persist.log.tag.RuntimePermissionsPersistenceImpl=S
+persist.log.tag.libprocessgroup=S
 
 # IMS
 persist.dbg.volte_avail_ovr=1
