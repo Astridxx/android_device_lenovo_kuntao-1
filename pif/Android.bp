@@ -1,0 +1,12 @@
+android_app_import {
+	name: "PifResourcesAstridxxPrebuilt",
+	apk: "PifResourcesAstridxxPrebuilt.apk",
+	presigned: true,
+	dex_preopt: {
+		enabled: false,
+	},
+    overrides: [
+        "PifResourcesPrebuilt",
+        ],
+	system_ext_specific: true,
+}

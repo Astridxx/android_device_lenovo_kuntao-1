@@ -1,2 +1,0 @@
-# Launcher3
-allow platform_app config_gz:file r_file_perms;

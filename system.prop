@@ -17,9 +17,6 @@ ro.kernel.ebpf.supported=false
 persist.device_config.tethering.bpf_net_maps_enable_java_bpf_map=false
 persist.vendor.net.doxlat=false
 
-# Blur on app-launch
-ro.launcher.blur.appLaunch=false
-
 # Camera
 persist.vendor.camera.display.umax=1920x1080
 persist.vendor.camera.display.lmax=1280x720
@@ -135,6 +132,7 @@ persist.vendor.recovery_update=false
 # Radio
 ro.telephony.default_network=9,1
 ro.telephony.call_ring.multiple=false
+persist.sys.radio.force_lte_ca=false
 
 # SurfaceFlinger
 ro.surface_flinger.force_hwc_copy_for_virtual_displays=true

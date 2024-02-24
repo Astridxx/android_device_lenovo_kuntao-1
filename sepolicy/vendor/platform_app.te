@@ -1,9 +1,6 @@
 # Alarm
 allow platform_app hal_alarm_qti_hwservice:hwservice_manager find;
-binder_call(platform_app, hal_alarm_qti_default);
+binder_call(platform_app, hal_alarm_qti_default)
 
-# Audio
-get_prop(platform_app, audio_config_prop);
-
-# Zram 
-r_dir_file(platform_app, sysfs_zram)
+# FPS info
+allow platform_app sysfs_fps:file rw_file_perms;

@@ -18,6 +18,9 @@
 /dev/validity(/.*)?                                                        u:object_r:vfsspi_device:s0
 /data/validity(/.*)?                                                       u:object_r:vfsspi_data_file:s0
 
+# FPS Info
+/sys/devices/virtual/graphics/fb0/measured_fps           u:object_r:sysfs_fps:s0
+
 # Lights
 /sys/devices/soc/78b8000\.i2c/i2c-4/4-0064/leds(/.*)?                      u:object_r:sysfs_leds:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service\.kuntao               u:object_r:hal_light_default_exec:s0
