@@ -86,6 +86,9 @@ on boot
     # Wifi firmware reload path
     chown wifi wifi /sys/module/wlan/parameters/fwpath
 
+on init
+    start vendor.sensors-hal-1-0
+
 # msm specific files that need to be created on /data
 on post-fs-data
     mkdir /data/vendor/misc 01771 system system
@@ -233,6 +236,7 @@ service qcom-post-boot /vendor/bin/init.qcom.post_boot.sh
 
 on property:sys.boot_completed=1
     start qcom-post-boot
+    start vendor.sensors-hal-1-0
     restart audioserver
     restart vendor.audio-hal
     restart vendor.media.omx
