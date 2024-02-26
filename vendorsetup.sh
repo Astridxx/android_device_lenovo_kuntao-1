@@ -12,6 +12,10 @@ rm -rf packages/apps/RevampedFMRadio && git clone --depth=1 https://github.com/i
 echo 'Cloning clang r416183b'
 rm -rf prebuilts/clang/kernel/linux-x86/clang-r416183b && git clone --depth=1 https://github.com/LineageOS/android_prebuilts_clang_kernel_linux-x86_clang-r416183b -b lineage-20.0 prebuilts/clang/kernel/linux-x86/clang-r416183b
 
+echo 'Cloning dolby atmos'
+git clone --depth=1 https://github.com/Astridxx/vendor_dolby -b lineage-21.0 vendor/dolby
+rm -rf vendor/dolby/sepolicy/private/property_contexts
+
 echo 'Cloning process completed, Patching process started...'
 
 echo 'Adding patch to Bionic'

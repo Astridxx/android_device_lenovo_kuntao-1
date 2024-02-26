@@ -21,6 +21,16 @@
     <PreferenceCategory
         android:key="audio"
         android:title="@string/audio_category">
+    <Preference
+        android:key="dolby"
+        android:title="@string/dolby_settings_title"
+        android:summary="@string/dolby_settings_summary"
+        android:icon="@drawable/ic_dolby"
+        android:persistent="false" >
+        <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.dolby.daxappui"
+                android:targetClass="com.dolby.daxappui.MainActivity" />
+    </Preference>
         <com.lenovo.parts.CustomSeekBarPreference
             android:defaultValue="4"
             android:key="headphone_gain"
