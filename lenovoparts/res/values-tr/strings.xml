@@ -11,6 +11,8 @@
 
     <!-- Sound control -->
     <string name="audio_category">Ses</string>
+    <string name="dolby_settings_title">Dolby Atmos™</string>
+    <string name="dolby_settings_summary">Dolby Atmos™ ayarları</string>
     <string name="headphone_gain">Kulaklık &amp; Arama ses seviyesi</string>
 
     <!-- Vibrator -->
