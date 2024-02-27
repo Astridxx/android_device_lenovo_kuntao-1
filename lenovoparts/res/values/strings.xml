@@ -12,7 +12,7 @@
     <!-- Sound control -->
     <string name="audio_category">Audio</string>
     <string name="dolby_settings_title">Dolby Atmos™</string>
-    <string name="dolby_settings_summary">Setting Dolby Atmos™</string>
+    <string name="dolby_settings_summary">Dive into sound reimagined with Dolby Atmos</string>
     <string name="headphone_gain">Headphone &amp; In-call gain</string>
 
     <!-- Vibrator -->
