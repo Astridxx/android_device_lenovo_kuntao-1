@@ -39,7 +39,6 @@ wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/framewor
 wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/framework_base/0013-Disable-vendor-mismatch-warning.patch
 wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/framework_base/0014-allow-to-tune-killing-cached-processes-until-post-boot-completed.patch
 wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/framework_base/0015-Optimize-AbsListView-to-reduce-click-operation-latency.patch
-wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/framework_base/0016-Show-charging-notification-only-if-power-brick-is-disconnected.patch
 wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/framework_base/0017-SettingsProvider-Resolve-google-gms-configurator-denials.patch
 wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/framework_base/0018-Remove-read-device-config-checks.patch
 wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/framework_base/0019-B-service-aging-propagation-on-memory-pressure.patch
@@ -66,7 +65,6 @@ patch -p1 <0012-Optimize-window-transition-animation-scaling.patch
 patch -p1 <0013-Disable-vendor-mismatch-warning.patch
 patch -p1 <0014-allow-to-tune-killing-cached-processes-until-post-boot-completed.patch
 patch -p1 <0015-Optimize-AbsListView-to-reduce-click-operation-latency.patch
-patch -p1 <0016-Show-charging-notification-only-if-power-brick-is-disconnected.patch
 patch -p1 <0017-SettingsProvider-Resolve-google-gms-configurator-denials.patch
 patch -p1 <0018-Remove-read-device-config-checks.patch
 patch -p1 <0019-B-service-aging-propagation-on-memory-pressure.patch
