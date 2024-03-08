@@ -6,9 +6,6 @@ rm -rf kernel/lenovo/msm8953 && git clone --depth=1 https://github.com/Astridxx/
 echo 'Cloning vendor tree'
 rm -rf vendor/lenovo && git clone --depth=1 https://github.com/Astridxx/proprietary_vendor_lenovo -b lineage-21 vendor/lenovo
 
-echo 'Cloning revamped fmradio'
-rm -rf packages/apps/RevampedFMRadio && git clone --depth=1 https://github.com/iusmac/RevampedFMRadio -b qcom packages/apps/RevampedFMRadio
-
 echo 'Cloning dolby atmos'
 git clone --depth=1 https://github.com/Astridxx/vendor_dolby -b lineage-21.0 vendor/dolby
 

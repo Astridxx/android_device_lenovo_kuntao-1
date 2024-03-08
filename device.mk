@@ -193,8 +193,8 @@ PRODUCT_PACKAGES += \
 
 # FM
 PRODUCT_PACKAGES += \
-    RevampedFMRadio \
-    libqcomfmjni:64
+    FMRadio \
+    libfmjni
 
 # Gatekeeper HAL
 PRODUCT_PACKAGES += \
