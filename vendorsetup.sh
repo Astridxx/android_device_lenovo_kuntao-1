@@ -50,6 +50,7 @@ wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/framewor
 wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/framework_base/0025-Fix-exception-when-retrieving-target-SDK-version.patch
 wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/framework_base/0026-Keystore-Spoof-locked-bootloader-on-local-attestations.patch
 wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/framework_base/0027-Spoof-build-fingerprint-for-Google-Play-Services.patch
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/framework_base/0028-Update-Spoof-fingerprint-patch
 patch -p1 <0001-hwui-reset-to-android-13-0-0-r13.patch
 patch -p1 <0002-BootReceiver-Return-early-if-trace-pipe-doesnt-exists.patch
 patch -p1 <0003-Ignore-cgroup-creation-errors.patch
@@ -76,6 +77,7 @@ patch -p1 <0024-Disable-FP-lockouts.patch
 patch -p1 <0025-Fix-exception-when-retrieving-target-SDK-version.patch
 patch -p1 <0026-Keystore-Spoof-locked-bootloader-on-local-attestations.patch
 patch -p1 <0027-Spoof-build-fingerprint-for-Google-Play-Services.patch
+patch -p1 <0028-Update-Spoof-fingerprint-patch
 cd ../..
 
 echo 'Adding patch to Frameworks av'
