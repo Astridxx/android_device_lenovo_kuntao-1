@@ -6,9 +6,6 @@ rm -rf kernel/lenovo/msm8953 && git clone --depth=1 https://github.com/Astridxx/
 echo 'Cloning vendor tree'
 rm -rf vendor/lenovo && git clone --depth=1 https://github.com/Astridxx/proprietary_vendor_lenovo -b lineage-21 vendor/lenovo
 
-echo 'Cloning revamped fmradio'
-rm -rf packages/apps/RevampedFMRadio && git clone --depth=1 https://github.com/iusmac/RevampedFMRadio -b qcom packages/apps/RevampedFMRadio
-
 echo 'Cloning clang r416183b'
 rm -rf prebuilts/clang/kernel/linux-x86/clang-r416183b && git clone --depth=1 https://github.com/LineageOS/android_prebuilts_clang_kernel_linux-x86_clang-r416183b -b lineage-20.0 prebuilts/clang/kernel/linux-x86/clang-r416183b
 
