@@ -9,6 +9,9 @@ rm -rf vendor/lenovo && git clone --depth=1 https://github.com/Astridxx/propriet
 echo 'Cloning dolby atmos'
 git clone --depth=1 https://github.com/Astridxx/vendor_dolby -b lineage-21.0 vendor/dolby
 
+echo 'Cloning faceunlock'
+git clone --depth=1 https://gitlab.com/crdroidandroid/android_packages_apps_FaceUnlock.git -b 14.0 packages/apps/FaceUnlock
+
 echo 'Cloning process completed, Patching process started...'
 
 echo 'Adding patch to Bionic'
@@ -184,6 +187,49 @@ cd vendor/lineage
 wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/vendor_lineage/0001-Restore-target-process-sdk-version-ovveride.patch
 patch -p1 <0001-Restore-target-process-sdk-version-ovveride.patch
 cd ../..
+
+echo 'Adding FaceUnlock Support'
+cd frameworks/base
+wget https://github.com/kuntao-development/android_frameworks_base-2/commit/a193f15dc4e32a2641487b46a878a0211db5cdec.patch
+wget https://github.com/kuntao-development/android_frameworks_base-2/commit/7ce122b533510967a61911f52c6b4096b5c471ab.patch
+wget https://github.com/kuntao-development/android_frameworks_base-2/commit/379a4ca08db9c5f1e687141c768883fd307f51a1.patch
+wget https://github.com/kuntao-development/android_frameworks_base-2/commit/d42d77e2366229cbb14075c5f860a3f115365b72.patch
+wget https://github.com/kuntao-development/android_frameworks_base-2/commit/847d99b8dfb15d3d96ca63ebc1c1fc3d2df7e4f2.patch
+wget https://github.com/kuntao-development/android_frameworks_base-2/commit/785b39d4c56e5f8fd0e5ed45be0722ae25ee4996.patch
+wget https://github.com/kuntao-development/android_frameworks_base-2/commit/ac0d2c6ddefdc0f47ce0dff4244e6fcf44f842cd.patch
+wget https://github.com/kuntao-development/android_frameworks_base-2/commit/7eb62a9e1ce44bf0c50eccc48627fd73b07f6818.patch
+wget https://github.com/kuntao-development/android_frameworks_base-2/commit/ddc6d3b6fd85e0a57e0c15d893b25d579c214670.patch
+wget https://github.com/kuntao-development/android_frameworks_base-2/commit/7c342b7b2dad4303264a34b2153bb10c5ded18ae.patch
+wget https://github.com/kuntao-development/android_frameworks_base-2/commit/17072a00176a28474314791d96ebe1c5e0a904fb.patch
+wget https://github.com/kuntao-development/android_frameworks_base-2/commit/f5fc49ff5fba0fae791c14bf90a7ba89302e62a9.patch
+wget https://github.com/kuntao-development/android_frameworks_base-2/commit/0d7fa217ccad037ee904fd26e9ca60787533a3eb.patch
+wget https://github.com/kuntao-development/android_frameworks_base-2/commit/704cc61da797a6610a8ff27d1eeacc7a0403289e.patch
+wget https://github.com/kuntao-development/android_frameworks_base-2/commit/b6e8164fe532a79636e4dab5753ba4e49a14ae45.patch
+wget https://github.com/kuntao-development/android_frameworks_base-2/commit/13ada2f471185a6599fe7f4055ad7d971d170f09.patch
+patch -p1 <a193f15dc4e32a2641487b46a878a0211db5cdec.patch
+patch -p1 <7ce122b533510967a61911f52c6b4096b5c471ab.patch
+patch -p1 <379a4ca08db9c5f1e687141c768883fd307f51a1.patch
+patch -p1 <d42d77e2366229cbb14075c5f860a3f115365b72.patch
+patch -p1 <847d99b8dfb15d3d96ca63ebc1c1fc3d2df7e4f2.patch
+patch -p1 <785b39d4c56e5f8fd0e5ed45be0722ae25ee4996.patch
+patch -p1 <ac0d2c6ddefdc0f47ce0dff4244e6fcf44f842cd.patch
+patch -p1 <7eb62a9e1ce44bf0c50eccc48627fd73b07f6818.patch
+patch -p1 <ddc6d3b6fd85e0a57e0c15d893b25d579c214670.patch
+patch -p1 <7c342b7b2dad4303264a34b2153bb10c5ded18ae.patch
+patch -p1 <17072a00176a28474314791d96ebe1c5e0a904fb.patch
+patch -p1 <f5fc49ff5fba0fae791c14bf90a7ba89302e62a9.patch
+patch -p1 <0d7fa217ccad037ee904fd26e9ca60787533a3eb.patch
+patch -p1 <704cc61da797a6610a8ff27d1eeacc7a0403289e.patch
+patch -p1 <b6e8164fe532a79636e4dab5753ba4e49a14ae45.patch
+patch -p1 <13ada2f471185a6599fe7f4055ad7d971d170f09.patch
+cd ../..
+
+cd packages/apps/Settings
+wget https://github.com/kuntao-development/android_packages_apps_Settings/commit/4e37f405948465108642bc8d5ed51eab94b5eb2b.patch
+wget https://github.com/kuntao-development/android_packages_apps_Settings/commit/f134ca19e81a98eac05da73b12a20dfbc7db17a1.patch
+patch -p1 <4e37f405948465108642bc8d5ed51eab94b5eb2b.patch
+patch -p1 <f134ca19e81a98eac05da73b12a20dfbc7db17a1.patch
+cd ../../..
 
 echo 'Patching process completed'
 
