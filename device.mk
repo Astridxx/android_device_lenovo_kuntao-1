@@ -413,10 +413,6 @@ PRODUCT_PACKAGES += \
     WifiOverlay \
     TetheringConfigOverlay
 
-# Trust HAL
-PRODUCT_PACKAGES += \
-    vendor.lineage.trust@1.0-service
-
 # TextClassifier
 PRODUCT_PACKAGES += \
 	libtextclassifier_annotator_en_model \
