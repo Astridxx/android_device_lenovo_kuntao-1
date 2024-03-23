@@ -21,7 +21,7 @@
     <PreferenceCategory
         android:key="fingerprint_key"
         android:title="@string/fingerprint_kuntao_title" >
-        <SwitchPreference
+        <SwitchPreferenceCompat
             android:key="fingerprint_gestures"
             android:defaultValue="true"
             android:title="@string/fingerprint_gestures_title"
