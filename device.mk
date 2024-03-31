@@ -17,7 +17,7 @@
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-lineage
+    $(LOCAL_PATH)/overlay-aicp
 
 # Optimize
 PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
@@ -413,10 +413,6 @@ PRODUCT_BOOT_JARS += \
 PRODUCT_PACKAGES += \
     WifiOverlay \
     TetheringConfigOverlay
-
-# Trust HAL
-PRODUCT_PACKAGES += \
-    vendor.lineage.trust@1.0-service
 
 # TextClassifier
 PRODUCT_PACKAGES += \

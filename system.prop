@@ -40,7 +40,7 @@ drm.service.enabled=true
 debug.sf.recomputecrop=0
 debug.gralloc.enable_fb_ubwc=1
 debug.hwui.renderer=opengl
-debug.renderengine.backend=threaded
+debug.renderengine.backend=gles
 debug.sf.enable_transaction_tracing=false
 debug.sf.predict_hwc_composition_strategy=0
 debug.sf.disable_client_composition_cache=1
@@ -50,6 +50,9 @@ renderthread.skia.reduceopstasksplitting=false
 persist.log.tag.synaFpHal=S
 persist.log.tag.SynapticsLIB=S
 persist.log.tag.synaTransport=S
+
+# Gms Spoof
+ro.build.gms_fingerprint=motorola/griffin_retcn/griffin:6.0.1/MCC24.246-37/42:user/release-keys
 
 # LMKD
 ro.lmk.use_psi=false
@@ -115,3 +118,6 @@ persist.sys.binary_xml=false
 
 # Set threshold to filter unused apps
 pm.dexopt.downgrade_after_inactive_days=10
+
+# Set the compiler filter for shared apks to quicken.
+pm.dexopt.shared=quicken

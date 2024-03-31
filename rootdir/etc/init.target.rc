@@ -65,7 +65,6 @@ on post-fs-data
 
 on boot
     # Update cpusets on boot and we want better load balancing
-    write /dev/cpuset/top-app/cpus 0-3
     write /dev/cpuset/foreground/cpus 0-6
     write /dev/cpuset/background/cpus 0-1
     write /dev/cpuset/system-background/cpus 0-3

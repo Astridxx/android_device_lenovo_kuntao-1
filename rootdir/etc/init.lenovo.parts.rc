@@ -29,6 +29,10 @@ on enable-low-power
     # Sensors
     restorecon --recursive /sys/bus/iio/devices/iio:device6/buffer/enable
 
+    # FPS info
+    chown system graphics /sys/devices/virtual/graphics/fb0/measured_fps
+    chmod 0666 /sys/devices/virtual/graphics/fb0/measured_fps
+
     # Vibration
     chown system system /sys/devices/virtual/timed_output/vibrator/vtg_level
     chmod 0660 /sys/devices/virtual/timed_output/vibrator/vtg_level
