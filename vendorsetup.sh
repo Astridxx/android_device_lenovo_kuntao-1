@@ -7,7 +7,7 @@ echo 'Cloning vendor tree'
 rm -rf vendor/lenovo && git clone --depth=1 https://github.com/Astridxx/proprietary_vendor_lenovo -b lineage-21 vendor/lenovo
 
 echo 'Cloning revamped fmradio'
-rm -rf packages/apps/RevampedFMRadio && git clone --depth=1 https://github.com/iusmac/RevampedFMRadio -b qcom packages/apps/RevampedFMRadio
+rm -rf packages/apps/RevampedFMRadio && git clone --depth=1 https://github.com/Astridxx/RevampedFMRadio -b qcom packages/apps/RevampedFMRadio
 
 echo 'Cloning dolby atmos'
 git clone --depth=1 https://github.com/Astridxx/vendor_dolby -b lineage-21.0 vendor/dolby
@@ -21,6 +21,12 @@ wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/bionic/0
 patch -p1 <0001-Implement-per-process-target-SDK-version-override.patch
 patch -p1 <0002-Squash-of-pre-P-mutex-behavior-restoration.patch
 cd ..
+
+echo 'Adding patch to Build make'
+cd build/make
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/build_make/0001-Set-Product-Compressed-Apex-false.patch
+patch -p1 <0001-Set-Product-Compressed-Apex-false.patch
+cd ../..
 
 echo 'Adding patch to Frameworks base'
 cd frameworks/base
@@ -39,18 +45,20 @@ wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/framewor
 wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/framework_base/0013-Disable-vendor-mismatch-warning.patch
 wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/framework_base/0014-allow-to-tune-killing-cached-processes-until-post-boot-completed.patch
 wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/framework_base/0015-Optimize-AbsListView-to-reduce-click-operation-latency.patch
-wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/framework_base/0016-Show-charging-notification-only-if-power-brick-is-disconnected.patch
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/framework_base/0016-Revert-Remove-deprecated-Radio-1-4-Apı-and-references.patch
 wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/framework_base/0017-SettingsProvider-Resolve-google-gms-configurator-denials.patch
-wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/framework_base/0018-Remove-read-device-config-checks.patch
-wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/framework_base/0019-B-service-aging-propagation-on-memory-pressure.patch
-wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/framework_base/0020-LightsService-Mute-an-annoying-error-message.patch
-wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/framework_base/0021-CachedAppOptimizer-revert-freezer-to-cgroups-v1.patch
-wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/framework_base/0022-BiometricScheduler-Cancel-operation-if-not-idle.patch
-wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/framework_base/0023-Optimize-notificiation-expansion-animation.patch
-wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/framework_base/0024-Disable-FP-lockouts.patch
-wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/framework_base/0025-Fix-exception-when-retrieving-target-SDK-version.patch
-wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/framework_base/0026-Keystore-Spoof-locked-bootloader-on-local-attestations.patch
-wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/framework_base/0027-Spoof-build-fingerprint-for-Google-Play-Services.patch
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/framework_base/0018-B-service-aging-propagation-on-memory-pressure.patch
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/framework_base/0019-LightsService-Mute-an-annoying-error-message.patch
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/framework_base/0020-CachedAppOptimizer-revert-freezer-to-cgroups-v1.patch
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/framework_base/0021-BiometricScheduler-Cancel-operation-if-not-idle.patch
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/framework_base/0022-Fix-exception-when-retrieving-target-SDK-version.patch
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/framework_base/0023-Keystore-Spoof-locked-bootloader-on-local-attestations.patch
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/framework_base/0024-Spoof-build-fingerprint-for-Google-Play-Services.patch
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/framework_base/0025-Update-Spoof-fingerprint-patch
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/framework_base/0026-fixup-hwui-reset-to-android-13-0-0-r13.patch
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/framework_base/0027-Disable-deprecated-target-abi-dialog.patch
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/framework_base/0028-Disable-FP-lockouts.patch
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/framework_base/0029-Optimize-notification-expansion-animation.patch
 patch -p1 <0001-hwui-reset-to-android-13-0-0-r13.patch
 patch -p1 <0002-BootReceiver-Return-early-if-trace-pipe-doesnt-exists.patch
 patch -p1 <0003-Ignore-cgroup-creation-errors.patch
@@ -66,47 +74,79 @@ patch -p1 <0012-Optimize-window-transition-animation-scaling.patch
 patch -p1 <0013-Disable-vendor-mismatch-warning.patch
 patch -p1 <0014-allow-to-tune-killing-cached-processes-until-post-boot-completed.patch
 patch -p1 <0015-Optimize-AbsListView-to-reduce-click-operation-latency.patch
-patch -p1 <0016-Show-charging-notification-only-if-power-brick-is-disconnected.patch
+patch -p1 <0016-Revert-Remove-deprecated-Radio-1-4-Apı-and-references.patch
 patch -p1 <0017-SettingsProvider-Resolve-google-gms-configurator-denials.patch
-patch -p1 <0018-Remove-read-device-config-checks.patch
-patch -p1 <0019-B-service-aging-propagation-on-memory-pressure.patch
-patch -p1 <0020-LightsService-Mute-an-annoying-error-message.patch
-patch -p1 <0021-CachedAppOptimizer-revert-freezer-to-cgroups-v1.patch
-patch -p1 <0022-BiometricScheduler-Cancel-operation-if-not-idle.patch
-patch -p1 <0023-Optimize-notificiation-expansion-animation.patch
-patch -p1 <0024-Disable-FP-lockouts.patch
-patch -p1 <0025-Fix-exception-when-retrieving-target-SDK-version.patch
-patch -p1 <0026-Keystore-Spoof-locked-bootloader-on-local-attestations.patch
-patch -p1 <0027-Spoof-build-fingerprint-for-Google-Play-Services.patch
+patch -p1 <0018-B-service-aging-propagation-on-memory-pressure.patch
+patch -p1 <0019-LightsService-Mute-an-annoying-error-message.patch
+patch -p1 <0020-CachedAppOptimizer-revert-freezer-to-cgroups-v1.patch
+patch -p1 <0021-BiometricScheduler-Cancel-operation-if-not-idle.patch
+patch -p1 <0022-Fix-exception-when-retrieving-target-SDK-version.patch
+patch -p1 <0023-Keystore-Spoof-locked-bootloader-on-local-attestations.patch
+patch -p1 <0024-Spoof-build-fingerprint-for-Google-Play-Services.patch
+patch -p1 <0025-Update-Spoof-fingerprint-patch
+patch -p1 <0026-fixup-hwui-reset-to-android-13-0-0-r13.patch
+patch -p1 <0027-Disable-deprecated-target-abi-dialog.patch
+patch -p1 <0028-Disable-FP-lockouts.patch
+patch -p1 <0029-Optimize-notification-expansion-animation.patch
 cd ../..
 
 echo 'Adding patch to Frameworks av'
 cd frameworks/av
-wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/frameworks_av/0001-Restore-clearkey-hidl-code.patch
-wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/frameworks_av/0002-OMXStore-Import-loading-libstagefrightdolby.patch
-wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/frameworks_av/0003-Import-Dolby-Effects-initialization.patch
-wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/frameworks_av/0004-Add-support-for-loading-prebuilt-ddp-decoder-lib.patch
-wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/frameworks_av/0005-Do-not-allow-DAP-effect-to-be-suspended.patch
-patch -p1 <0001-Restore-clearkey-hidl-code.patch
-patch -p1 <0002-OMXStore-Import-loading-libstagefrightdolby.patch
-patch -p1 <0003-Import-Dolby-Effects-initialization.patch
-patch -p1 <0004-Add-support-for-loading-prebuilt-ddp-decoder-lib.patch
-patch -p1 <0005-Do-not-allow-DAP-effect-to-be-suspended.patch
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/frameworks_av/0001-OMXStore-Import-loading-libstagefrightdolby.patch
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/frameworks_av/0002-Add-support-for-loading-prebuilt-ddp-decoder-lib.patch
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/frameworks_av/0003-Do-not-allow-DAP-effect-to-be-suspended.patch
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/frameworks_av/0004-Restore-clearkey-hidl-code.patch
+patch -p1 <0001-OMXStore-Import-loading-libstagefrightdolby.patch
+patch -p1 <0002-Add-support-for-loading-prebuilt-ddp-decoder-lib.patch
+patch -p1 <0003-Do-not-allow-DAP-effect-to-be-suspended.patch
+patch -p1 <0004-Restore-clearkey-hidl-code.patch
 cd ../..
 
-echo 'Adding patch to Frameworks net'
-cd frameworks/libs/net
-wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/frameworks_libs_net/0001-Restore-back-the-behavior-of-isValid.patch
-patch -p1 <0001-Restore-back-the-behavior-of-isValid.patch
+echo 'Adding patch to Frameworks native'
+cd frameworks/native
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/frameworks_native/0001-Disable-gpu-service.patch
+patch -p1 <0001-Disable-gpu-service.patch
+cd ../..
+
+echo 'Adding patch to Frameworks telephony'
+cd frameworks/opt/telephony
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/frameworks_opt_telephony/0001-Revert-Remove-deprecated-Radio-1-4-API-and-reference.patch
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/frameworks_opt_telephony/0002-Revert-Remove-deprecated-HAL-versions-for-IRadio.patch
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/frameworks_opt_telephony/0003-Pass-correct-value-to-setPreferredNetworkType-for-RIL-version-1-4.patch
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/frameworks_opt_telephony/0004-Fix-NPE-with-1-0-and-1-1-CardStatus.patch
+patch -p1 <0001-Revert-Remove-deprecated-Radio-1-4-API-and-reference.patch
+patch -p1 <0002-Revert-Remove-deprecated-HAL-versions-for-IRadio.patch
+patch -p1 <0003-Pass-correct-value-to-setPreferredNetworkType-for-RIL-version-1-4.patch
+patch -p1 <0004-Fix-NPE-with-1-0-and-1-1-CardStatus.patch
 cd ../../..
 
 echo 'Adding patch to System bpf'
 cd system/bpf
 wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/system_bpf/00001-Support-no-bpf-usecase.patch
-wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/system_bpf/00002-Revert-detect-inability-to-write-to-index-of-bpf-map-array.patch
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/system_bpf/00002-fixup-Support-no-bpf-usecase.patch
 patch -p1 <00001-Support-no-bpf-usecase.patch
-patch -p1 <00002-Revert-detect-inability-to-write-to-index-of-bpf-map-array.patch
+patch -p1 <00002-fixup-Support-no-bpf-usecase.patch
 cd ../..
+
+echo 'Adding patch to NetworkStack modules'
+cd packages/modules/NetworkStack
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/packages_modules_NetworkStack/0001-Disable-parsing-netlink-events-from-kernel.patch
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/packages_modules_NetworkStack/0002-Revert-BR05-Disable-doze-mode-workaround-when-ignore-blocked-uids.patch
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/packages_modules_NetworkStack/0003-Revert-BR10-Skip-tcp-info-for-uids-which-blocked-by-data-saver.patch
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/packages_modules_NetworkStack/0004-Revert-BR04-Skip-traffic-of-etworking-blocked-uid-in-data-stall-detection.patch
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/packages_modules_NetworkStack/0005-Revert-Remove-isTcpInfoParsingSupported-and-Q-test-annotations.patch
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/packages_modules_NetworkStack/0006-Requesting-tcp-info-via-netlink-socket-is-not-supported.patch
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/packages_modules_NetworkStack/0007-Revert-BR13-dump-Device-Configs-to-dumpsys.patch
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/packages_modules_NetworkStack/0008-Revert-BR03-2-Implement-NetworkStack-is-uid-networking-blocked-shell-command.patch
+patch -p1 <0001-Disable-parsing-netlink-events-from-kernel.patch
+patch -p1 <0002-Revert-BR05-Disable-doze-mode-workaround-when-ignore-blocked-uids.patch
+patch -p1 <0003-Revert-BR10-Skip-tcp-info-for-uids-which-blocked-by-data-saver.patch
+patch -p1 <0004-Revert-BR04-Skip-traffic-of-etworking-blocked-uid-in-data-stall-detection.patch
+patch -p1 <0005-Revert-Remove-isTcpInfoParsingSupported-and-Q-test-annotations.patch
+patch -p1 <0006-Requesting-tcp-info-via-netlink-socket-is-not-supported.patch
+patch -p1 <0007-Revert-BR13-dump-Device-Configs-to-dumpsys.patch
+patch -p1 <0008-Revert-BR03-2-Implement-NetworkStack-is-uid-networking-blocked-shell-command.patch
+cd ../../..
 
 echo 'Adding patch to System netd'
 cd system/netd
@@ -118,44 +158,52 @@ patch -p1 <0002-Dont-abort-in-case-of-cgroup-bpf-setup-fail.patch
 patch -p1 <0003-Disable-bandwidth-control-for-BPF-less-devices.patch
 cd ../..
 
-echo 'Adding patch to NetworkStack modules'
-cd packages/modules/NetworkStack
-wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/packages_modules_NetworkStack/0001-Revert-Save-ip-client-parse-netlink-events-version-flag-value-at-initialization.patch
-wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/packages_modules_NetworkStack/0002-Revert-Enable-parsing-netlink-events-from-kernel-since-T.patch
-wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/packages_modules_NetworkStack/0003-Opt-out-for-TCP-info-parsing-on-legacy-kernels.patch
-patch -p1 <0001-Revert-Save-ip-client-parse-netlink-events-version-flag-value-at-initialization.patch
-patch -p1 <0002-Revert-Enable-parsing-netlink-events-from-kernel-since-T.patch
-patch -p1 <0003-Opt-out-for-TCP-info-parsing-on-legacy-kernels.patch
+echo 'Adding patch to Services Telephony'
+cd packages/services/Telephony
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/packages_services_Telephony/0001-Revert-Remove-deprecated-Radio-1-4-API-and-references.patch
+patch -p1 <0001-Revert-Remove-deprecated-Radio-1-4-API-and-references.patch
 cd ../../..
 
 echo 'Adding patch to System core'
 cd system/core
 wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/system_core/0001-Fix-support-for-devices-without-cgroupv2-support.patch
 wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/system_core/0002-Camera-Add-feature-extensions.patch
-wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/system_core/0003-init-Disable-bootreceiver-tracing-instance-for-3-18-kernel.patch
-wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/system_core/0004-init-Dont-enable-f2fs-iostat-by-default.patch
-wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/system_core/0005-Revert-libprocessgroup-switch-freezer-to-cgroup-v2.patch
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/system_core/0003-Revert-libprocessgroup-switch-freezer-to-cgroup-v2.patch
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/system_core/0004-init-Disable-bootreceiver-tracing-instance-for-3-18-kernel.patch
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/system_core/0005-init-Dont-enable-f2fs-iostat-by-default.patch
 wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/system_core/0006-Panic-into-recovery-rather-than-bootloader.patch
 patch -p1 <0001-Fix-support-for-devices-without-cgroupv2-support.patch
 patch -p1 <0002-Camera-Add-feature-extensions.patch
-patch -p1 <0003-init-Disable-bootreceiver-tracing-instance-for-3-18-kernel.patch
-patch -p1 <0004-init-Dont-enable-f2fs-iostat-by-default.patch
-patch -p1 <0005-Revert-libprocessgroup-switch-freezer-to-cgroup-v2.patch
+patch -p1 <0003-Revert-libprocessgroup-switch-freezer-to-cgroup-v2.patch
+patch -p1 <0004-init-Disable-bootreceiver-tracing-instance-for-3-18-kernel.patch
+patch -p1 <0005-init-Dont-enable-f2fs-iostat-by-default.patch
 patch -p1 <0006-Panic-into-recovery-rather-than-bootloader.patch
 cd ../..
 
 echo 'Adding patch to Connectivity modules'
 cd packages/modules/Connectivity
 wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/packages_modules_Connectivity/0001-Allow-failing-to-load-bpf-programs-for-BPF-less-devices.patch
-wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/packages_modules_Connectivity/0002-Dont-delete-UID-rom-BpfMap-on-BPF-less-kernel.patch
-wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/packages_modules_Connectivity/0003-Make-the-use-of-IBpfMaps-optional.patch
-wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/packages_modules_Connectivity/0004-Fix-BPF-less-devices-to-boot-Android-U.patch
-wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/packages_modules_Connectivity/0005-check-if-map-is-null-to-prevent-crash-on-BPF-less-devices.patch
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/packages_modules_Connectivity/0002-Support-non-working-BPF-maps-on-old-BPF-less-kernel.patch
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/packages_modules_Connectivity/0003-More-bpf-errors-ignore-there-are-some-4-14-without-the-bpf-jit-file.patch
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/packages_modules_Connectivity/0004-disable-SocketNetlinkMonitor.patch
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/packages_modules_Connectivity/0005-dnsresolver-Support-no-bpf-usecase.patch
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/packages_modules_Connectivity/0006-clatcoordinator-Support-no-bpf-usecase.patch
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/packages_modules_Connectivity/0007-BpfNetMaps-Make-use-of-BpfNetMaps-safe.patch
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/packages_modules_Connectivity/0008-libnetworkstats-Make-use-of-BpfMap-safe.patch
 patch -p1 <0001-Allow-failing-to-load-bpf-programs-for-BPF-less-devices.patch
-patch -p1 <0002-Dont-delete-UID-rom-BpfMap-on-BPF-less-kernel.patch
-patch -p1 <0003-Make-the-use-of-IBpfMaps-optional.patch
-patch -p1 <0004-Fix-BPF-less-devices-to-boot-Android-U.patch
-patch -p1 <0005-check-if-map-is-null-to-prevent-crash-on-BPF-less-devices.patch
+patch -p1 <0002-Support-non-working-BPF-maps-on-old-BPF-less-kernel.patch
+patch -p1 <0003-More-bpf-errors-ignore-there-are-some-4-14-without-the-bpf-jit-file.patch
+patch -p1 <0004-disable-SocketNetlinkMonitor.patch
+patch -p1 <0005-dnsresolver-Support-no-bpf-usecase.patch
+patch -p1 <0006-clatcoordinator-Support-no-bpf-usecase.patch
+patch -p1 <0007-BpfNetMaps-Make-use-of-BpfNetMaps-safe.patch
+patch -p1 <0008-libnetworkstats-Make-use-of-BpfMap-safe.patch
+cd ../../..
+
+echo 'Adding patch to DnsResolver'
+cd packages/modules/DnsResolver
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/packages_modules_DnsResolver/Dont-abort-if-the-DnsHelper-failed-to-init-on-BPF-less-kernel.patch
+patch -p1 <Dont-abort-if-the-DnsHelper-failed-to-init-on-BPF-less-kernel.patch
 cd ../../..
 
 echo 'Adding patch to System sepolicy'
