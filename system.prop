@@ -53,6 +53,9 @@ debug.sf.predict_hwc_composition_strategy=0
 debug.sf.disable_client_composition_cache=1
 renderthread.skia.reduceopstasksplitting=false
 
+# HW timeout multiplier
+ro.hw_timeout_multiplier=6
+
 # Fingerprint
 persist.log.tag.synaFpHal=S
 persist.log.tag.SynapticsLIB=S
