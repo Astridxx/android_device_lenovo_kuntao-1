@@ -104,8 +104,10 @@ cd ../..
 
 echo 'Adding patch to Frameworks native'
 cd frameworks/native
-wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/frameworks_native/0001-Disable-gpu-service.patch
-patch -p1 <0001-Disable-gpu-service.patch
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/frameworks_native/0001-Disable-gpuservice-on-old-BPF-less-kernel.patch
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/frameworks_native/0002-SurfaceFlinger-Disable-SF-HWC-backpressure.patch
+patch -p1 <0001-Disable-gpuservice-on-old-BPF-less-kernel.patch
+patch -p1 <0002-SurfaceFlinger-Disable-SF-HWC-backpressure.patch
 cd ../..
 
 echo 'Adding patch to Frameworks telephony'
@@ -202,8 +204,8 @@ cd ../../..
 
 echo 'Adding patch to DnsResolver'
 cd packages/modules/DnsResolver
-wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/packages_modules_DnsResolver/Dont-abort-if-the-DnsHelper-failed-to-init-on-BPF-less-kernel.patch
-patch -p1 <Dont-abort-if-the-DnsHelper-failed-to-init-on-BPF-less-kernel.patch
+wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/packages_modules_DnsResolver/0001-Dont-abort-if-the-DnsHelper-failed-to-init-on-BPF-less-kernel.patch
+patch -p1 <0001-Dont-abort-if-the-DnsHelper-failed-to-init-on-BPF-less-kernel.patch
 cd ../../..
 
 echo 'Adding patch to System sepolicy'
