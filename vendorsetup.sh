@@ -12,6 +12,9 @@ rm -rf packages/apps/RevampedFMRadio && git clone --depth=1 https://github.com/A
 echo 'Cloning dolby atmos'
 git clone --depth=1 https://github.com/Astridxx/vendor_dolby -b lineage-21.0 vendor/dolby
 
+echo 'Cloning faceunlock'
+git clone --depth=1 https://gitlab.com/crdroidandroid/android_packages_apps_FaceUnlock.git -b 14.0 packages/apps/FaceUnlock
+
 echo 'Cloning process completed, Patching process started...'
 
 echo 'Adding patch to Bionic'
@@ -237,6 +240,25 @@ cd vendor/lineage
 wget https://raw.githubusercontent.com/Astridxx/Patch-Kuntao/lineage-21/vendor_lineage/0001-Restore-target-process-sdk-version-ovveride.patch
 patch -p1 <0001-Restore-target-process-sdk-version-ovveride.patch
 cd ../..
+
+echo 'Adding FaceUnlock Support'
+cd frameworks/base
+wget https://github.com/Astridxx/android_frameworks_base/commit/3f623be42e51cc89ca8eeb8f6738be9a7f232ccb.patch
+wget https://github.com/Astridxx/android_frameworks_base/commit/782d87d56b6ae0152cbdd87ebb69ff4291c6ec52.patch
+wget https://github.com/Astridxx/android_frameworks_base/commit/46b452a5f07c74d47e91d124fa61b3d9a3267e2c.patch
+wget https://github.com/Astridxx/android_frameworks_base/commit/483576c33811b4b6034943f3ee5fef7c5b14077a.patch
+patch -p1 <3f623be42e51cc89ca8eeb8f6738be9a7f232ccb.patch
+patch -p1 <782d87d56b6ae0152cbdd87ebb69ff4291c6ec52.patch
+patch -p1 <46b452a5f07c74d47e91d124fa61b3d9a3267e2c.patch
+patch -p1 <483576c33811b4b6034943f3ee5fef7c5b14077a.patch
+cd ../..
+
+cd packages/apps/Settings
+wget https://github.com/Astridxx/android_packages_apps_Settings/commit/12c2570e75373fd903e2691e4f08a283c3681ce9.patch
+wget https://github.com/Astridxx/android_packages_apps_Settings/commit/91baabb9eeb08e02486777704e8e5f3ec00e2523.patch
+patch -p1 <12c2570e75373fd903e2691e4f08a283c3681ce9.patch
+patch -p1 <91baabb9eeb08e02486777704e8e5f3ec00e2523.patch
+cd ../../..
 
 echo 'Patching process completed'
 
